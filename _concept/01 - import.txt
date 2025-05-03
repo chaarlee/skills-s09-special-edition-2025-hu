@@ -1,7 +1,7 @@
 - Import Customers
  * (PERFECT MATCH) ha mind az 5 egyezik (firstName, LastName, motherName, birthDate, birthPlace), akkor azonos
- * (MATCH) ha 4 egyezik, akkor azonos, de figyelmeztetni kell, JSON-server megtartása
- * (NEW) minden más esetben
+ * (PARTIAL MATCH) ha 4 egyezik, akkor azonos, de figyelmeztetni kell, JSON-server megtartása
+ * (NEW) minden más esetben, CRM id-t meg kell tartani mint ID
 
  + GET Customers
  + POST Customer
@@ -14,14 +14,14 @@
  * (IMPORTED AS INACTIVE) ha nem ez az újabb termék
  * (IMPORTED AS ACTIVE) ha ez az újabb, meg kell adni, hogy mi, mik lettek INACTIVE-ak
 
- + GET Transactions
- + POST Transaction
- + PATCH Transaction
+ + GET Contracts
+ + POST Contract
+ + PATCH Contract
  + CSV log file
 
 
 Ellenőrzés
 - Customers JSON file ellenőrzése
 - Customers CSV log file ellenőrzése (soronként)
-- Transactions JSON file ellenőrzése
-- Transactions CSV log file ellenőrzése (soronként)
+- Contracts JSON file ellenőrzése
+- Contracts CSV log file ellenőrzése (soronként)
