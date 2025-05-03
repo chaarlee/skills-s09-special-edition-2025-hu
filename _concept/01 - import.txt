@@ -9,14 +9,15 @@
 
 
 - Import Contracts
- * (ARCHIVE) ha inaktív a termék
- * (IMPORTED) ha nincs változás
+ * (ARCHIVED) ha inaktív a termék
+ // * (IMPORTED) ha nincs változás
  * (IMPORTED AS INACTIVE) ha nem ez az újabb termék
- * (IMPORTED AS ACTIVE) ha ez az újabb, meg kell adni, hogy mi, mik lettek INACTIVE-ak
+ * (IMPORTED AS ACTIVE) ha ez az újabb //, meg kell adni, hogy mi, mik lettek INACTIVE-ak
+ ! figyelni kell arra, hogy params CSV-ben JSON string-ként van
 
  + GET Contracts
  + POST Contract
- + PATCH Contract
+ // + PATCH Contract
  + CSV log file
 
 

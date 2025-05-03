@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { faker } = require("@faker-js/faker");
-const { randomCustomer, json2csv } = require("./lib");
+const { randomCustomer, randomContract, json2csv } = require("./lib");
 const { exit } = require("process");
 
 const main = () => {
@@ -8,6 +8,8 @@ const main = () => {
   const content = fs.readFileSync(file, "utf-8");
   const db = JSON.parse(content);
   const newDb = {};
+
+  // -- Customers
 
   const customerIds = db.customers.map((customer) => customer.id);
   const contractsByCustomer = {};
@@ -18,6 +20,11 @@ const main = () => {
     );
     return acc;
   }, {});
+  // console.log("customers.length", Object.keys(customers).length);
+  // console.log(
+  //   "contractsByCustomer.length",
+  //   Object.keys(contractsByCustomer).length
+  // );
 
   const shuffledCustomerIds = customerIds.sort(() => Math.random() - 0.5);
   const cntCustomers = shuffledCustomerIds.length;
@@ -81,6 +88,8 @@ const main = () => {
   //   customers[examplePartialMatches[1]]
   // );
 
+  const importCustomersMap = { ...perfectMatches, ...partialMatches };
+
   // New Customers (30%)
   let newCustomers = faker.helpers.multiple(randomCustomer, {
     count: Math.floor(cntCustomers * 0.3),
@@ -110,14 +119,8 @@ const main = () => {
   const customerSolutions = [...cbsCustomers, ...newCustomers];
   console.log("customerSolutions", customerSolutions.length);
 
-  newDb.customers = customerSolutions.map((customerId) => {
-    const customer = { ...customers[customerId] };
-    return customer;
-  });
-  console.log("newDb.customers", newDb.customers.length);
-
   // Customer CSV Log
-  const customerCsvLog = crmCustomers.map((customerId) => {
+  const customerCsvLog = crmCustomers.map((customerId, i) => {
     let type = "NEW";
     let crmId = customerId;
     let cbsId = customerId;
@@ -130,6 +133,7 @@ const main = () => {
       cbsId = partialMatches[customerId];
     }
     return {
+      row: i + 1,
       type,
       crmId,
       cbsId,
@@ -150,7 +154,87 @@ const main = () => {
   );
   console.log(`01-customers.output.csv created`);
 
-  // console.log("customers", Object.values(customers).slice(0, 5));
+  // -- Contracts
+  const newContracts = [];
+  for (let i = 0; i < crmCustomers.length * 5; i++) {
+    newContracts.push(randomContract(db.products, crmCustomerData));
+  }
+  console.log("contracts.length", newContracts.length);
+
+  // Contracts CSV Log
+  const contractCsvLog = newContracts.map((contract, i) => {
+    if (!contractsByCustomer[contract.customerId]) {
+      contractsByCustomer[contract.customerId] = [];
+    }
+    const customerId =
+      importCustomersMap[contract.customerId] ?? contract.customerId;
+    const sameTypeActiveContracts = contractsByCustomer[customerId].filter(
+      (c) =>
+        c.type === contract.type &&
+        c.status === "active" &&
+        c.contractDate > contract.contractDate
+    );
+    const type =
+      contract.status === "inactive"
+        ? "ARCHIVED"
+        : sameTypeActiveContracts.length > 0
+        ? "IMPORTED AS INACTIVE"
+        : "IMPORTED AS ACTIVE";
+    return {
+      row: i + 1,
+      type,
+      id: contract.id,
+    };
+  });
+  console.log("contractCsvLog", contractCsvLog.length);
+  console.log(
+    "contractCsvLog",
+    // contractCsvLog.find((c) => c.type === "ARCHIVED")
+    // contractCsvLog.find((c) => c.type === "IMPORTED AS ACTIVE")
+    contractCsvLog.find((c) => c.type === "IMPORTED AS INACTIVE")
+  );
+
+  // write to 01-contracts.csv
+  fs.writeFileSync(
+    "./assets/01-contracts.csv",
+    json2csv(
+      newContracts.map((c) => {
+        return {
+          ...c,
+          params: JSON.stringify(c.params),
+        };
+      })
+    )
+  );
+  console.log(`01-contracts.csv created`);
+
+  // write to 01-contracts.output.csv
+  fs.writeFileSync(
+    "./assets/01-contracts.output.csv",
+    json2csv(contractCsvLog)
+  );
+  console.log(`01-contracts.output.csv created`);
+
+  // -- New DB
+
+  newDb.customers = customerSolutions.map((customerId) => {
+    const customer = { ...customers[customerId] };
+    return customer;
+  });
+  console.log("newDb.customers", newDb.customers.length);
+
+  newDb.contracts = [
+    ...db.contracts,
+    ...newContracts
+      .filter((c) => c.status === "active")
+      .map((c) => {
+        return {
+          ...c,
+          customerId: importCustomersMap[c.customerId] ?? c.customerId,
+        };
+      }),
+  ];
+  console.log("newDb.contracts", newDb.contracts.length);
 
   // write to newDb.json
   fs.writeFileSync("./assets/01-db.json", JSON.stringify(newDb, null, 2));
