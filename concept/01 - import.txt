@@ -1,0 +1,27 @@
+- Import Customers
+ * (PERFECT MATCH) ha mind az 5 egyezik (firstName, LastName, motherName, birthDate, birthPlace), akkor azonos
+ * (MATCH) ha 4 egyezik, akkor azonos, de figyelmeztetni kell, JSON-server megtartása
+ * (NEW) minden más esetben
+
+ + GET Customers
+ + POST Customer
+ + CSV log file
+
+
+- Import Contracts
+ * (ARCHIVE) ha inaktív a termék
+ * (IMPORTED) ha nincs változás
+ * (IMPORTED AS INACTIVE) ha nem ez az újabb termék
+ * (IMPORTED AS ACTIVE) ha ez az újabb, meg kell adni, hogy mi, mik lettek INACTIVE-ak
+
+ + GET Transactions
+ + POST Transaction
+ + PATCH Transaction
+ + CSV log file
+
+
+Ellenőrzés
+- Customers JSON file ellenőrzése
+- Customers CSV log file ellenőrzése (soronként)
+- Transactions JSON file ellenőrzése
+- Transactions CSV log file ellenőrzése (soronként)

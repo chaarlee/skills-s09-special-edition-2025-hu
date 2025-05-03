@@ -1,0 +1,20 @@
+Mobile, Sales Application
+
+- List of customers with pagination
+ * Full-text search
+
+- Customer view with Contracts
+
+- Generate Initiate Credit Rating
+
+- Send Initiate Credit Rating
+
+
++ GET Customers + pagination + ?q={fulltextsearch}
++ GET Customer by ID, response Customer + Contracts + Products
++ POST Customer 5 attributes 3rd party (not found, list of warnings) use API token in header
++ GET Customer Rating
++ POST result of Initiate Credit Rating in email (template id, JSON)
+
+
++ Test Plan in a software

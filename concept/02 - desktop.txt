@@ -1,0 +1,21 @@
+Customer identification and Customer 360 view
+
++ JSON server API
++ Auth service API
+
+- Login with auth service, handle errors
+
+- Search screen for identification
+ * birthDate (date picker field)
+ * name (firstName, lastName) split name by first space, both order okey
+ * full text search, split by space, firstName, lastName, motherName, birthPlace, birthDate every part of search has to match to one field
+
+- List matches
+
+- Select one and show Customer 360
+ * Customer
+ * Contracts with params
+ * Accounts
+ * List Transactions 
+
++ Test plan in a software (testmo?)
