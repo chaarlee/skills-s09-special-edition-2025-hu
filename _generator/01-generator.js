@@ -1,7 +1,6 @@
 const fs = require("fs");
 const { faker } = require("@faker-js/faker");
 const { randomCustomer, randomContract, json2csv } = require("./lib");
-const { exit } = require("process");
 
 const main = () => {
   const file = "./assets/db.json";
