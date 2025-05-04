@@ -76491,9 +76491,7 @@
       "contractDate": "2024-04-02T13:07:16.512Z",
       "status": "active",
       "price": 41.48,
-      "params": {
-        "loanAmount": 77095.43
-      }
+      "params": "x"
     },
     {
       "id": "582e3e5c-d209-472a-bc70-405387b2a00e",
@@ -76502,7 +76500,7 @@
       "contractDate": "2023-01-20T22:31:42.967Z",
       "status": "active",
       "price": 90.64,
-      "params": {}
+      "params": "{}"
     },
     {
       "id": "bcf85178-1e03-4b59-8e12-7913c5a6f03c",
@@ -76511,7 +76509,7 @@
       "contractDate": "2021-03-19T04:51:06.567Z",
       "status": "active",
       "price": 89.48,
-      "params": {}
+      "params": "{}"
     },
     {
       "id": "c2f50274-5f1e-43d5-b6bd-4c53538259f9",
@@ -76673,17 +76671,6 @@
       "status": "active",
       "price": 65.41,
       "params": {}
-    },
-    {
-      "id": "x2295fc2c-5506-437e-9e68-d9a1c3b43ca4",
-      "customerId": "52d24311-3c62-4ca0-a87b-850ce462c3d7",
-      "productId": "3",
-      "contractDate": "2025-03-03T21:15:26.921Z",
-      "status": "active",
-      "price": 83.57,
-      "params": {
-        "loanAmount": 35457.43
-      }
     }
   ]
 }

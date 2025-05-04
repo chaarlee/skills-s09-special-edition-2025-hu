@@ -204,11 +204,23 @@ const test_contracts_json = (competitorFolder) => {
       0.95
     );
 
-    // same records
+    // same params
+    const sameParams = solution.contracts.reduce((acc, x) => {
+      const found = competitorSolution.contracts.find((y) => y.id === x.id);
+      if (found) {
+        _.isEqual(x.params, found.params) ? acc++ : acc;
+      }
+      return acc;
+    }, 0);
+    marking.add("same params", solution.contracts.length, sameParams, -1, 0.9);
+
+    // same records without params
     const same = solution.contracts.reduce((acc, x) => {
       const found = competitorSolution.contracts.find((y) => y.id === x.id);
       if (found) {
-        _.isEqual(x, found) ? acc++ : acc;
+        _.isEqual({ ...x, params: undefined }, { ...found, params: undefined })
+          ? acc++
+          : acc;
       }
       return acc;
     }, 0);
