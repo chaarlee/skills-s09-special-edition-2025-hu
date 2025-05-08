@@ -19,6 +19,6 @@ Reconciliation
 * where transactions has same accountNumber and in 1 hour
 
 Customer Rating
-* 3 category by total balance, use 1 USD = 0.9 EUR, 1 HUF = 2.5 EUR (or 0.025, in this case the import has to x400)
+* 3 category by total balance, use 1 USD = 0.9 EUR, 1 HUF = 2.5 EUR (or 0.0025, in this case the import has to x400)
 * 3 category by number of transactions
 * boolean hasNegative balance anytime
