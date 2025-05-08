@@ -16,14 +16,15 @@ const { randomCustomer, randomContract, randomAccount } = require("./lib");
 // Online Banking
 // Crypto
 const PRODUCTS = [
-  { id: "1", name: "Credit Card" },
-  { id: "2", name: "Loan" },
-  { id: "3", name: "Mortgage" },
-  { id: "4", name: "Insurance" },
-  { id: "5", name: "Investment" },
-  { id: "6", name: "Forex" },
-  { id: "7", name: "Online Banking" },
-  { id: "8", name: "Crypto" },
+  // change id to guid
+  { id: faker.string.uuid(), name: "Credit Card" },
+  { id: faker.string.uuid(), name: "Loan" },
+  { id: faker.string.uuid(), name: "Mortgage" },
+  { id: faker.string.uuid(), name: "Insurance" },
+  { id: faker.string.uuid(), name: "Investment" },
+  { id: faker.string.uuid(), name: "Forex" },
+  { id: faker.string.uuid(), name: "Online Banking" },
+  { id: faker.string.uuid(), name: "Crypto" },
 ];
 
 const CNT = {
