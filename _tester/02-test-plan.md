@@ -1,6 +1,6 @@
 # 🔐 Session 02 - TEST PLAN – Bank Frontend Application
 
-## Test Group 1 - Authentication (Login)
+## TEST GROUP 1 - Authentication (Login)
 
 These test cases verify correct and incorrect behavior of the authentication flow using the Auth Service API.
 
@@ -257,7 +257,6 @@ Both positive and negative cases are covered to ensure correctness and robustnes
 
 ## 👁️‍🗨️ TEST GROUP 3 – Customer 360 View
 
-
 ### 🧪 Test Case 3.0 – Customer 360 screen components are visible
 
 - **Title**: View renders all required sections after selection
@@ -391,7 +390,7 @@ These aspects focus on the overall user experience as perceived visually and emo
 
 ---
 
-### 1. 🧭 Flow & Cognitive Clarity
+### 4.1 🧭 Flow & Cognitive Clarity
 
 - Does the application feel intuitive to use without explanation?
 - Are screen transitions and the step-by-step journey (login → search → profile) logically structured?
@@ -400,7 +399,7 @@ These aspects focus on the overall user experience as perceived visually and emo
 
 ---
 
-### 2. 🎨 Visual Consistency & Aesthetic Quality
+### 4.2 🎨 Visual Consistency & Aesthetic Quality
 
 - Are layout, spacing, and alignment clean and coherent across all screens?
 - Is the visual hierarchy effective (e.g. what stands out vs. what blends in)?
@@ -409,7 +408,7 @@ These aspects focus on the overall user experience as perceived visually and emo
 
 ---
 
-### 3. 💡 Interface Feedback & Emotional Tone
+### 4.3 💡 Interface Feedback & Emotional Tone
 
 - Are state changes (e.g. loading, selection, no results) communicated clearly?
 - Do visual cues (highlighted rows, selected items, disabled buttons) support user understanding?
@@ -418,7 +417,7 @@ These aspects focus on the overall user experience as perceived visually and emo
 
 ---
 
-### 4. 🖥️ Desktop Usability & Accessibility Perception
+### 4.4 🖥️ Desktop Usability & Accessibility Perception
 
 - Is the interface usable at common desktop resolutions (e.g. 1280×720 and above)?
 - Are all actions accessible using a mouse and/or keyboard (optional but ideal)?
