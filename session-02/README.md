@@ -21,7 +21,7 @@ In this session, you will build a simple Bank Frontend Application that connects
 Before any other action, the user must log in using credentials via the Auth Service API.
 
 - Input: **user and password**
-- Handle login errors gracefully (e.g., invalid credentials, server errors).
+- Handle login errors gracefully (status code: 401 Unauthorized).
 - Example users:
   - `user1 / 123456`
   - `user2 / qwerty`

@@ -6,6 +6,8 @@ You will be provided with **exact** API specifications that you need to implemen
 
 A database schema is also provided for you, and a MySQL instance is also available for you to use.
 
+**Your application must run on port 8989 and also make sure to allow all domain names to access your service (e.g.: 0.0.0.0:8989)**
+
 ## Database
 
 <<< include image >>>
@@ -49,7 +51,7 @@ Response body **200 Ok**:
 ]
 ```
 
-**Note**: The response must be ascending ordered by year. Years without customers must be omitted.
+**Note**: The response must be ascending ordered by year. Years without new customers must be omitted.
 
 ### Contracts
 
@@ -284,3 +286,13 @@ Response body **200 Ok**:
   "hasNegativeBalanceInHistory": false
 }
 ```
+
+## ✅ Submission Instructions
+
+- Submit your solution via **Git repository**
+- Include:
+  - Complete **source code**
+  - A `README.md` with clear instructions on:
+    - How to **start** the application
+    - Where to configure **API URLs**
+    - How to run it locally (dependencies, build steps, etc.)

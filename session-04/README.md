@@ -8,9 +8,13 @@ On startup of the application, the user should be able to see all customers in a
 
 The search function should be able to search in the firstname, lastname, birthplace and email (using `OR`). In case the user specifies multiple words, it should be considered as an `AND` function.
 
+![customers](customers.png)
+
 ## Customer details
 
 When the user clicks on a customer, the user should be redirected to a detail page. The detail page should show all information about the customer. Such as contracts, accounts and their details.
+
+![customer details](customer-details.png)
 
 ## Customer rating
 
@@ -37,6 +41,8 @@ GET crs/ratings/{customerId}
 ```
 
 The user should be able to properly view the `crs` report, the user should be able to back out of this view, or send it to the customer using the `ns` (Notification Service). The `ns` can be used the following way:
+
+![customer report](customer-report.png)
 
 POST ns/send
 
@@ -66,3 +72,13 @@ In case the bank rating is at least good on all fronts and there is no negative 
 ```text
 In case the bank rating is excellent on all fronts and there is no negative balance in history, also the government info doesn't have any negative information about the customer.
 ```
+
+## ✅ Submission Instructions
+
+- Submit your solution via **Git repository**
+- Include:
+  - Complete **source code**
+  - A `README.md` with clear instructions on:
+    - How to **start** the application
+    - Where to configure **API URLs**
+    - How to run it locally (dependencies, build steps, etc.)
