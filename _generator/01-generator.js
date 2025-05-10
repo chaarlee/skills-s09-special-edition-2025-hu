@@ -160,6 +160,20 @@ const main = () => {
   }
   console.log("contracts.length", newContracts.length);
 
+  // FIX: add new contracts to customers
+  newContracts.forEach((contract) => {
+    const customerId = contract.customerId;
+    if (!customers[customerId]) {
+      console.log("customer not found", customerId);
+      return;
+    }
+    if (!contractsByCustomer[customerId]) {
+      contractsByCustomer[customerId] = [];
+    }
+    contractsByCustomer[customerId].push(contract);
+  });
+  // END FIX
+
   // Contracts CSV Log
   const contractCsvLog = newContracts.map((contract, i) => {
     if (!contractsByCustomer[contract.customerId]) {
