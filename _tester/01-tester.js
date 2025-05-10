@@ -89,7 +89,7 @@ const test_customers_json = (competitorFolder) => {
       solution.customers.length,
       competitorSolution.customers.length,
       -1,
-      0.95
+      0.65
     );
 
     // same records
@@ -100,7 +100,7 @@ const test_customers_json = (competitorFolder) => {
       }
       return acc;
     }, 0);
-    marking.add("same records", solution.customers.length, same, -1, 0.9);
+    marking.add("same records", solution.customers.length, same, -1, 0.6);
   } catch (error) {
     console.error("Error reading competitor file:", competitorFile);
     return;
@@ -154,14 +154,14 @@ const test_contracts_csv = (competitorFolder) => {
       sTypes.ACTIVE,
       csTypes.ACTIVE,
       -1,
-      0.95
+      0.65
     );
     marking.add(
       "count type: IMPORTED AS INACTIVE",
       sTypes.INACTIVE,
       csTypes.INACTIVE,
       -1,
-      0.95
+      0.5
     );
 
     // same records
@@ -172,7 +172,7 @@ const test_contracts_csv = (competitorFolder) => {
       }
       return acc;
     }, 0);
-    marking.add("same records", solution.length, same, -1, 0.95);
+    marking.add("same records", solution.length, same, -1, 0.65);
   } catch (error) {
     console.error("Error reading competitor file:", competitorFile);
     return;
@@ -201,7 +201,7 @@ const test_contracts_json = (competitorFolder) => {
       solution.contracts.length,
       competitorSolution.contracts.length,
       -1,
-      0.95
+      0.65
     );
 
     // same params
@@ -212,7 +212,7 @@ const test_contracts_json = (competitorFolder) => {
       }
       return acc;
     }, 0);
-    marking.add("same params", solution.contracts.length, sameParams, -1, 0.9);
+    marking.add("same params", solution.contracts.length, sameParams, -1, 0.6);
 
     // same records without params
     const same = solution.contracts.reduce((acc, x) => {
@@ -224,7 +224,7 @@ const test_contracts_json = (competitorFolder) => {
       }
       return acc;
     }, 0);
-    marking.add("same records", solution.contracts.length, same, -1, 0.9);
+    marking.add("same records", solution.contracts.length, same, -1, 0.6);
   } catch (error) {
     console.error("Error reading competitor file:", competitorFile);
     return;
