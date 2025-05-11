@@ -28,10 +28,10 @@ const PRODUCTS = [
 ];
 
 const CNT = {
-  customers: 1000,
+  customers: 500,
   products: PRODUCTS.length,
-  contracts: 3000,
-  accounts: 2000,
+  contracts: 1500,
+  accounts: 1000,
 };
 
 const main = () => {
